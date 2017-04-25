@@ -1,1 +1,2 @@
 # EloBuddy
+Addons for EB
