@@ -25,7 +25,7 @@ namespace Unk_Rakan
             Game.OnTick += Game_OnTick;
             Game.OnUpdate += Game_OnGameUpdate;
             Interrupter.OnInterruptableSpell += Misc.Interrupter_OnInterruptableSpell;
-            Gapcloser.OnGapcloser += Misc.AntiGapCloser;
+            Gapcloser.OnGapcloser += Misc.GapCloser_OnGapCloser;
 
             Chat.Print("Unk-Rakan 1.0.0.4 Loaded Successfully");
             Chat.Print("Please Report Any Issues in the Thread.");
@@ -44,6 +44,7 @@ namespace Unk_Rakan
             }
 
             HarassManager.Harass();
+            Flee.FleeWithR();
 
         }
 

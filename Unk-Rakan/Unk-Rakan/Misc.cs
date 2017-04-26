@@ -13,21 +13,24 @@ namespace Unk_Rakan
         public static readonly Item HpPot = new Item((int)ItemId.Health_Potion);
         public static readonly Item RefillPot = new Item((int)ItemId.Refillable_Potion);
 
-        public static void AntiGapCloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs gapcloser)
-        {
-            if (gapcloser.Sender.IsValidTarget() && Spells.Q.IsReady() && Menus.GetCheckBoxItem(Menus.MiscMenu, "QGap") && gapcloser.Sender.Type != Player.Instance.Type && !gapcloser.Sender.IsEnemy && gapcloser.Sender.IsAlly)
-            {
-                Spells.Q.Cast(gapcloser.Sender.ServerPosition);
-            }
-        }
-
-        public static void Interrupter_OnInterruptableSpell(Obj_AI_Base sender, Interrupter.InterruptableSpellEventArgs interruptableSpellEventArgs)
+        public static void GapCloser_OnGapCloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
         {
             if (!sender.IsEnemy) return;
 
-            if (interruptableSpellEventArgs.DangerLevel >= DangerLevel.High && Menus.GetCheckBoxItem(Menus.InterrupterMenu, "Use W") && Spells.W.IsReady())
+            if (e.Target.IsMe && sender.IsValidTarget() && Spells.W.IsReady() && Menus.GetCheckBoxItem(Menus.MiscMenu, "WGap") && sender.IsAttackingPlayer && sender.IsEnemy && sender.Distance(Player.Instance.Position) <= 600 && e.End.Distance(Player.Instance.Position) <= 600)
             {
                 Spells.W.Cast(sender.Position);
+            }
+        }
+
+        public static void Interrupter_OnInterruptableSpell(Obj_AI_Base sender, Interrupter.InterruptableSpellEventArgs e)
+        {
+            if (!sender.IsEnemy) return;
+            var target = (AIHeroClient) sender;
+
+            if (sender.IsValid && Menus.GetCheckBoxItem(Menus.InterrupterMenu, "Use W") && sender.IsEnemy && target.IsValidTarget(Spells.W.Range) && e.DangerLevel >= DangerLevel.High)
+            {
+                Spells.W.Cast(e.Sender);
             }
         }
 

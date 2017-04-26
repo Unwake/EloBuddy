@@ -18,5 +18,13 @@ namespace Unk_Rakan
                 Spells.E.Cast(allies);
             }
         }
+
+        public static void FleeWithR()
+        {
+            if (Player.Instance.HealthPercent <= Menus.GetSliderItem(Menus.FleeMenu, "AutoRHpPer") && Menus.GetCheckBoxItem(Menus.FleeMenu, "AutoRFlee") && Spells.R.IsReady())
+            {
+                Spells.R.Cast();
+            }
+        }
     }
 }
