@@ -21,7 +21,7 @@ namespace Unk_Rakan
 
         public static void FleeWithR()
         {
-            if (Player.Instance.HealthPercent <= Menus.GetSliderItem(Menus.FleeMenu, "AutoRHpPer") && Menus.GetCheckBoxItem(Menus.FleeMenu, "AutoRFlee") && Spells.R.IsReady())
+            if (Player.Instance.HealthPercent <= Menus.GetSliderItem(Menus.FleeMenu, "AutoRHpPer") && !Player.Instance.IsDead && Menus.GetCheckBoxItem(Menus.FleeMenu, "AutoRFlee") && Spells.R.IsReady())
             {
                 Spells.R.Cast();
             }
