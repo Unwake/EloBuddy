@@ -48,7 +48,7 @@ namespace Rakan___Unwake_s_Charmer
             }
 
             if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use R") &&
-                Player.Instance.CountEnemyChampionsInRange(Spells.Q.Range) >=
+                Player.Instance.CountEnemyChampionsInRange(Spells.R.Range) >=
                 Menus.GetSliderItem(Menus.ComboMenu, "Use R in Min Enemies") && target != null &&
                 Spells.R.IsReady())
             {
