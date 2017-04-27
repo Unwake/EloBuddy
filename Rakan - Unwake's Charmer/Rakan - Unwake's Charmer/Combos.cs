@@ -47,19 +47,19 @@ namespace Rakan___Unwake_s_Charmer
                 }
             }
 
-            if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use E") && Spells.E.IsReady() && target != null)
-            {
-                Spells.E.Cast(allies);
-            }
-
             if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use R") &&
                 Player.Instance.CountEnemyChampionsInRange(Spells.Q.Range) >=
                 Menus.GetSliderItem(Menus.ComboMenu, "Use R in Min Enemies") && target != null &&
                 Spells.R.IsReady())
             {
                 {
-                    Spells.R.Cast(target);
+                    Spells.R.Cast();
                 }
+            }
+
+            if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use E") && Spells.E.IsReady() && target != null)
+            {
+                Spells.E.Cast(allies);
             }
 
             if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use Ignite") && Spells.Ignite.IsReady() && target != null)
