@@ -7,7 +7,7 @@ namespace Unk_Rakan
 {
     class Program
     {
-        public static string Version = "Version 1.0.0.4";
+        public static string Version = "Version 1.0.0.5";
         static void Main(string[] args)
         {
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
@@ -27,7 +27,7 @@ namespace Unk_Rakan
             Interrupter.OnInterruptableSpell += Misc.Interrupter_OnInterruptableSpell;
             Gapcloser.OnGapcloser += Misc.GapCloser_OnGapCloser;
 
-            Chat.Print("Unk-Rakan 1.0.0.4 Loaded Successfully");
+            Chat.Print("Unk-Rakan 1.0.0.5 Loaded Successfully");
             Chat.Print("Please Report Any Issues in the Thread.");
         }
 

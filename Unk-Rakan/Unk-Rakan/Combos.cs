@@ -109,7 +109,7 @@ namespace Unk_Rakan
 
             if (REWQE)
             {
-                if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use R") && Player.Instance.CountEnemyChampionsInRange(Spells.R.Range) >= Menus.GetSliderItem(Menus.ComboMenu, "Use R in Min Enemies") && target != null && Spells.R.IsReady())
+                if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use R") && Player.Instance.CountEnemyChampionsInRange(Spells.Q.Range) >= Menus.GetSliderItem(Menus.ComboMenu, "Use R in Min Enemies") && target != null && Spells.R.IsReady())
                 {
                     {
                         Spells.R.Cast(target);
@@ -198,7 +198,7 @@ namespace Unk_Rakan
                 }
 
                 if (Menus.GetCheckBoxItem(Menus.ComboMenu, "Use R") &&
-                    Player.Instance.CountEnemyChampionsInRange(Spells.R.Range) >=
+                    Player.Instance.CountEnemyChampionsInRange(Spells.Q.Range) >=
                     Menus.GetSliderItem(Menus.ComboMenu, "Use R in Min Enemies") && target != null &&
                     Spells.R.IsReady())
                 {
